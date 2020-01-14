@@ -58,7 +58,7 @@ def build_model():
 #Preparing validation data --> k-fold validation 
 k = 4
 num_val_samples = len(train_data) // k
-num_epochs = 100 
+num_epochs = 500 
 #all_scores = [] 
 all_mae_histories = []
 
@@ -86,6 +86,6 @@ average_mae_history = [np.mean([x[i] for x in all_mae_histories]) for i in range
 
 plt.plot(range(1, len(average_mae_history) + 1), average_mae_history) 
 plt.xlabel('Epochs') 
-plt.ylabel('Validation MAE') 
+plt.ylabel('Validation MAE')
 plt.show() 
 
