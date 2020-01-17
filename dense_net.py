@@ -17,17 +17,10 @@ output_4 = pure_data[:,77]
 #first, we want to load our data and split it into (training data, training labels) and 
 #(test data, test labels) --> these are randomly selected 
 
-pure_data = pure_data[:,:74]
+#Excluding features 72, 73 for correlation reasons ... 
+pure_data = pure_data[:,:72]
 
 train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_1, test_size =0.2)
-
-'''
-train_data = np.asarray(train_data)
-train_targets = np.asarray(train_targets)
-test_data = np.asarray(test_data)
-test_targets = np.asarray(test_targets)
-pure_data = np.asarray(pure_data)
-'''
 
 print("TRAINING DATA SHAPE: ", train_data.shape, "|TESTING DATA SHAPE: ", test_data.shape)
 print("TRAINING TARGETS SHAPE: ", train_targets.shape, "|TESTING TARGETS SHAPE: ", test_targets.shape)
@@ -58,7 +51,7 @@ def build_model():
 #Preparing validation data --> k-fold validation 
 k = 4
 num_val_samples = len(train_data) // k
-num_epochs = 500 
+num_epochs = 100 
 #all_scores = [] 
 all_mae_histories = []
 
@@ -83,6 +76,14 @@ for i in range(k):
 
 
 average_mae_history = [np.mean([x[i] for x in all_mae_histories]) for i in range(num_epochs)]
+
+#Training final model 
+
+model = build_model() 
+model.fit(train_data, train_targets, epochs=80, batch_size = 20, verbose = 0) 
+test_mse_score, test_mae_score = model.evaluate(test_data, test_targets) 
+
+print("TEST MAE SCORE: ", test_mae_score) 
 
 plt.plot(range(1, len(average_mae_history) + 1), average_mae_history) 
 plt.xlabel('Epochs') 
