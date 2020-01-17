@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-data = pd.read_excel(open('Features_fulldata.xlsx', 'rb')) 
+data = pd.read_excel(open('Features_fulldata_combined.xlsx', 'rb')) 
 data.astype('float64').dtypes #homogenizing data type 
 pure_data = data.to_numpy() #converting to numpy array
 
@@ -49,7 +49,7 @@ def build_model():
     return model 
 
 #Preparing validation data --> k-fold validation 
-k = 4
+k = 5
 num_val_samples = len(train_data) // k
 num_epochs = 100 
 #all_scores = [] 
