@@ -42,14 +42,17 @@ test_data /= std
 def build_model(): 
     model = models.Sequential()
     model.add(layers.Dense(74, activation = 'relu', input_shape=(train_data.shape[1],)))
-    model.add(layers.Dense(50, activation = 'relu')) #hidden layer
+    model.add(layers.Dense(70, activation = 'relu')) #hidden layer 1
+    model.add(layers.Dense(70, activation = 'relu')) #hidden layer 2
+    model.add(layers.Dense(40, activation = 'relu')) #hidden layer 3
+    model.add(layers.Dense(10, activation = 'relu')) #hidden layer 4
     model.add(layers.Dense(1)) 
     model.compile(optimizer = 'rmsprop', loss = 'mse', metrics = ['mae'])
 
     return model 
 
 #Preparing validation data --> k-fold validation 
-k = 5
+k = 7
 num_val_samples = len(train_data) // k
 num_epochs = 100 
 #all_scores = [] 
