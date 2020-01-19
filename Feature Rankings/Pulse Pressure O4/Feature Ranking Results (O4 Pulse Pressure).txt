@@ -1,0 +1,7 @@
+COLLINEARITY
+12 features with a correlation magnitude greater than 0.97:
+['F5', 'F15', 'F18', 'F24', 'F30', 'F31', 'F39', 'F52', 'F58', 'F64', 'F65', 'F68']
+
+69 features required for 0.99 of cumulative importance
+6 features do not contribute to cumulative importance of 0.99:
+LOW IMPORTANCE FEATURES:  ['F68', 'F64', 'F30', 'F31','F65']
