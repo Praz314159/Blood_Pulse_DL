@@ -22,16 +22,14 @@ pure_data = pure_data[:,1:72]
 
 #deleting feautres 39, 68, 30, 64, 31, and 65
 
-#pure_data = np.delete(pure_data, 39, 1)
-pure_data = np.delete(pure_data, 58, 1)
+pure_data = np.delete(pure_data, 68, 1)
+pure_data = np.delete(pure_data, 39, 1)
 pure_data = np.delete(pure_data, 30, 1)
 pure_data = np.delete(pure_data, 64, 1)
 pure_data = np.delete(pure_data, 31, 1)
 pure_data = np.delete(pure_data, 65, 1)
 
-
-
-train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_2, test_size =0.2)
+train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_3, test_size =0.2)
 
 print("TRAINING DATA SHAPE: ", train_data.shape, "|TESTING DATA SHAPE: ", test_data.shape)
 print("TRAINING TARGETS SHAPE: ", train_targets.shape, "|TESTING TARGETS SHAPE: ", test_targets.shape)
@@ -52,9 +50,9 @@ test_data /= std
 
 def build_model(): 
     model = models.Sequential()
-    model.add(layers.Dense(66, activation = 'relu', input_shape=(train_data.shape[1],)))
-    model.add(layers.Dense(60, activation = 'relu')) #hidden layer 1
-    model.add(layers.Dense(60, activation = 'relu')) #hidden layer 2
+    model.add(layers.Dense(72, activation = 'relu', input_shape=(train_data.shape[1],)))
+    model.add(layers.Dense(70, activation = 'relu')) #hidden layer 1
+    model.add(layers.Dense(70, activation = 'relu')) #hidden layer 2
     model.add(layers.Dense(40, activation = 'relu')) #hidden layer 3
     model.add(layers.Dense(10, activation = 'relu')) #hidden layer 4
     model.add(layers.Dense(1)) 
