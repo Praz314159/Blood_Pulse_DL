@@ -21,15 +21,15 @@ output_4 = pure_data[:,77]
 pure_data = pure_data[:,1:72]
 
 #deleting feautres 39, 68, 30, 64, 31, and 65
-
+'''
 pure_data = np.delete(pure_data, 68, 1)
-pure_data = np.delete(pure_data, 39, 1)
+#pure_data = np.delete(pure_data, 39, 1)
 pure_data = np.delete(pure_data, 30, 1)
 pure_data = np.delete(pure_data, 64, 1)
 pure_data = np.delete(pure_data, 31, 1)
 pure_data = np.delete(pure_data, 65, 1)
-
-train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_3, test_size =0.2)
+'''
+train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_1, test_size =0.2)
 
 print("TRAINING DATA SHAPE: ", train_data.shape, "|TESTING DATA SHAPE: ", test_data.shape)
 print("TRAINING TARGETS SHAPE: ", train_targets.shape, "|TESTING TARGETS SHAPE: ", test_targets.shape)
