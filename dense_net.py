@@ -19,15 +19,33 @@ output_4 = pure_data[:,77]
 
 #Excluding features 72, 73 for correlation reasons as well as sample index
 pure_data = pure_data[:,1:72]
-
-#deleting feautres 39, 68, 30, 64, 31, and 65
-
-pure_data = np.delete(pure_data, 58, 1)
-#pure_data = np.delete(pure_data, 39, 1)
+''
+#delete for O1 
 pure_data = np.delete(pure_data, 30, 1)
-pure_data = np.delete(pure_data, 64, 1)
-pure_data = np.delete(pure_data, 31, 1)
-pure_data = np.delete(pure_data, 65, 1)
+pure_data = np.delete(pure_data, 31, 1) 
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 65, 1) 
+pure_data = np.delete(pure_data, 68, 1) 
+
+#delete for O2 
+pure_data = np.delete(pure_data, 1, 1)
+pure_data = np.delete(pure_data, 30, 1) 
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 65, 1)  
+
+#delete for O3 
+pure_data = np.delete(pure_data, 30, 1)
+pure_data = np.delete(pure_data, 31, 1) 
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 65, 1) 
+pure_data = np.delete(pure_data, 70, 1) 
+
+#delete for O4
+pure_data = np.delete(pure_data, 30, 1)
+pure_data = np.delete(pure_data, 31, 1) 
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 65, 1) 
+pure_data = np.delete(pure_data, 66, 1) 
 
 train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_2, test_size =0.2)
 

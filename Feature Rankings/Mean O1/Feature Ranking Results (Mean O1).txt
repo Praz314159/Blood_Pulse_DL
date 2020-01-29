@@ -2,8 +2,7 @@ COLLINEARITY
 12 features with a correlation magnitude greater than 0.97: 
 ['F5', 'F15', 'F18', 'F24', 'F30', 'F31', 'F39', 'F52', 'F58', 'F64', 'F65', 'F68']
 
-There are 74 original features
-70 features required for 0.99 of cumulative importance
-69 features required for cumulative importance of 0.99 after one hot encoding.
-5 features do not contribute to cumulative importance of 0.99:
-['F39','F68', 'F30', 'F64', 'F31', 'F65']
+LOW IMPORTANCE FEATURES:  ['F64', 'F15', 'F69', 'F70', 'F30', 'F68', 'F65', 'F31']
+
+most important features: F27:0.053543, F13:0.043850, F3:0.025156, F53: 0.023309, F54:0.022848
+
