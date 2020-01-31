@@ -19,35 +19,38 @@ output_4 = pure_data[:,77]
 
 #Excluding features 72, 73 for correlation reasons as well as sample index
 pure_data = pure_data[:,1:72]
-''
+print(np.size(pure_data, axis=1)) 
+'''
 #delete for O1 
-pure_data = np.delete(pure_data, 30, 1)
-pure_data = np.delete(pure_data, 31, 1) 
-pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 68, 1)
 pure_data = np.delete(pure_data, 65, 1) 
-pure_data = np.delete(pure_data, 68, 1) 
-
-#delete for O2 
-pure_data = np.delete(pure_data, 1, 1)
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 31, 1) 
 pure_data = np.delete(pure_data, 30, 1) 
+'''
+'''
+#delete for O2 
+pure_data = np.delete(pure_data, 65, 1)
 pure_data = np.delete(pure_data, 64, 1) 
-pure_data = np.delete(pure_data, 65, 1)  
-
+pure_data = np.delete(pure_data, 30, 1) 
+pure_data = np.delete(pure_data, 1, 1)  
+'''
+'''
 #delete for O3 
-pure_data = np.delete(pure_data, 30, 1)
-pure_data = np.delete(pure_data, 31, 1) 
-pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 70, 1)
 pure_data = np.delete(pure_data, 65, 1) 
-pure_data = np.delete(pure_data, 70, 1) 
-
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 31, 1) 
+pure_data = np.delete(pure_data, 30, 1) 
+'''
 #delete for O4
-pure_data = np.delete(pure_data, 30, 1)
-pure_data = np.delete(pure_data, 31, 1) 
-pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 66, 1)
 pure_data = np.delete(pure_data, 65, 1) 
-pure_data = np.delete(pure_data, 66, 1) 
+pure_data = np.delete(pure_data, 64, 1) 
+pure_data = np.delete(pure_data, 31, 1) 
+pure_data = np.delete(pure_data, 30, 1) 
 
-train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_2, test_size =0.2)
+train_data, test_data, train_targets, test_targets = train_test_split(pure_data, output_4, test_size =0.2)
 
 print("TRAINING DATA SHAPE: ", train_data.shape, "|TESTING DATA SHAPE: ", test_data.shape)
 print("TRAINING TARGETS SHAPE: ", train_targets.shape, "|TESTING TARGETS SHAPE: ", test_targets.shape)
