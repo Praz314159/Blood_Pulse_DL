@@ -3,6 +3,7 @@ import numpy as np
 import xlrd 
 import pandas as pd
 import xlsxwriter 
+
 '''
 Preliminary steps: 
     1) First, we downloaded all the files
@@ -15,9 +16,9 @@ final_data = np.zeros(shape = (1, 77))
 
 #loading data from each file; getting second col; replacing last four vals with
 #correct vals; transposing col; appending as new row
-
 #initializing first 9 rows. We're doing this now because it looks like 
 #there's a weird file ordering in the directory 
+
 cycle_1 = np.loadtxt("P1_C1_.csv", delimiter = ",") 
 cycle_1_col = cycle_1[:,1]
 cycle_1_row = cycle_1_col.transpose() 
@@ -31,7 +32,7 @@ for name in rows_till_nine:
     col = data[:,1]
     new_row = col.transpose()
     final_data = np.vstack([final_data, new_row])
-    #np.append(final_data,[[new_row]], axis = 0) 
+    #np.append(final_data,[[new_row]], axis = 0)
 
 #building rows 10 - 42, which seems to be organized in folder in order 
 for f in files:
@@ -60,8 +61,8 @@ final_data[:,74] = SBP
 final_data[:,75] = DBP
 final_data[:,76] = PP
 
-
 print(final_data)
+
 #now we should have all the correct values in their correct places 
 #we convert the numpy array to an xlsx file so that we can copy and
 #paste into fullData
@@ -70,4 +71,3 @@ print(final_data)
 #final_data_frame.to_excel("induced_BP.xlsx", index = False)
 
 np.savetxt("Induced_BP.csv", final_data, delimiter = ',')
-
